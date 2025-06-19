@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects | Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Portfolio</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#projects" class="active">Projects</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="project-listing">
+        <div class="container">
+            <div class="back-link">
+                <a href="index.html#projects"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+            </div>
+            <div class="section-header">
+                <h2>All Projects</h2>
+                <div class="separator"></div>
+            </div>
+            
+            <div class="project-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="cv">Computer Vision</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="misc">Other Projects</button>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Computer Vision Projects -->
+                <div class="project-card" data-category="cv">
+                    <div class="project-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>Fatigue Detection System</h3>
+                        <p>A computer vision system for real-time driver fatigue detection using eye tracking and head motion analysis.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>OpenCV</span>
+                            <span>Computer Vision</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/Fatigue-Detection-System" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="cv">
+                    <div class="project-icon">
+                        <i class="fas fa-signature"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>Handwritten Digit Recognition</h3>
+                        <p>A self-contained Python project that trains a Convolutional Neural Network (CNN) from scratch on the MNIST dataset using PyTorch and OpenCV.</p>
+                        <div class="project-tags">
+                            <span>PyTorch</span>
+                            <span>CNN</span>
+                            <span>OpenCV</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/handwritten-digit-recognition-model" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="cv">
+                    <div class="project-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>Color Detector</h3>
+                        <p>Computer vision application that detects and identifies colors in real-time from images and video feeds.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>OpenCV</span>
+                            <span>Color Processing</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/color-detector" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="cv">
+                    <div class="project-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>Color Track Camera</h3>
+                        <p>Real-time color tracking system using computer vision to detect and track specific colors through camera input.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>OpenCV</span>
+                            <span>Color Tracking</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/color-track-cam" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="cv">
+                    <div class="project-icon">
+                        <i class="fas fa-hand-point-up"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>Finger Calculator</h3>
+                        <p>Innovative application that detects finger gestures to perform basic calculator operations using computer vision techniques.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>OpenCV</span>
+                            <span>Gesture Recognition</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/finger-calculator" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="cv">
+                    <div class="project-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>Emotion Detection System</h3>
+                        <p>Real-time facial emotion recognition system that detects and classifies human emotions from facial expressions using deep learning.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Deep Learning</span>
+                            <span>Facial Recognition</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/emotion-detection" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="cv">
+                    <div class="project-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>People Detection</h3>
+                        <p>A real-time people counting application using your webcam, powered by PyTorch and OpenCV. Leverages a pre-trained MobileNetV3-SSD model to detect and count people in live video streams.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>PyTorch</span>
+                            <span>OpenCV</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/people-detection" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development Projects -->
+                <div class="project-card" data-category="web">
+                    <div class="project-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>Django Chat Site</h3>
+                        <p>Real-time chat application built with Django, Django Channels, and WebSockets.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Django</span>
+                            <span>WebSockets</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/django-chat-site" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>Bolt App</h3>
+                        <p>A ride-booking application with user authentication, trip history, and real-time ride management.</p>
+                        <div class="project-tags">
+                            <span>Flask</span>
+                            <span>Oracle DB</span>
+                            <span>Leaflet.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/bolt-app" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other Projects -->
+                <div class="project-card" data-category="misc">
+                    <div class="project-icon">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>Chess Game</h3>
+                        <p>A Java-based chess game with graphical user interface and game logic implementation.</p>
+                        <div class="project-tags">
+                            <span>Java</span>
+                            <span>GUI</span>
+                            <span>Game Development</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/Chess-Game" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="misc">
+                    <div class="project-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>Telegram Bot</h3>
+                        <p>Functional Telegram bot using Python for automation and user interaction with customizable commands.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Telegram API</span>
+                            <span>Automation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/expensesTracker-telegramBot" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="project-card" data-category="misc">
+                    <div class="project-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>Voice Assistant</h3>
+                        <p>Interactive voice assistant with natural language processing capabilities for task automation and information retrieval.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Speech Recognition</span>
+                            <span>NLP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/voice-assistant" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="misc">
+                    <div class="project-icon">
+                        <i class="fas fa-sticky-note"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>Smart Meeting Notes Assistant</h3>
+                        <p>AI-powered tool that automatically transcribes, summarizes, and organizes meeting notes with action item extraction.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>NLP</span>
+                            <span>Speech-to-Text</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/smart-meeting-notes-assistant" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Web Project -->
+                <div class="project-card" data-category="web">
+                    <div class="project-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>User Data Fetch API Template</h3>
+                        <p>JavaScript template for fetching and displaying user data from APIs with clean implementation.</p>
+                        <div class="project-tags">
+                            <span>JavaScript</span>
+                            <span>HTML/CSS</span>
+                            <span>API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/userData-fetch-API-template" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="web">
+                    <div class="project-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>Barbershop Website</h3>
+                        <p>Professional barbershop website with appointment scheduling, service listings, and responsive design.</p>
+                        <div class="project-tags">
+                            <span>HTML/CSS</span>
+                            <span>JavaScript</span>
+                            <span>Responsive Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/barbershop" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="web">
+                    <div class="project-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>Movie Booking System</h3>
+                        <p>Online movie ticket booking system with seat selection, payment processing, and user accounts.</p>
+                        <div class="project-tags">
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/movie-booking-system" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="project-card" data-category="web">
+                    <div class="project-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3>Meal Recipe Website</h3>
+                        <p>Recipe sharing website template with beautiful UI, recipe categories, and user authentication.</p>
+                        <div class="project-tags">
+                            <span>HTML/CSS</span>
+                            <span>JavaScript</span>
+                            <span>Bootstrap</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Khayal-Aghazada/mealReceipt-website-template" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/Khayal-Aghazada" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/khayal-aghazada-738990301" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Project filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(button => button.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filterValue = btn.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
