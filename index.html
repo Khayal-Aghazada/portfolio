@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khayal Aghazada | Backend & Full Stack Engineer</title>
+  <meta name="description"
+    content="Backend and full stack engineer focused on Python, Django, FastAPI, SQL, machine learning, and computer vision." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1b2e;
+      --card: #102236;
+      --card-border: rgba(148, 163, 184, 0.18);
+      --text: #e5edf7;
+      --muted: #93a4b8;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --white: #ffffff;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(7, 17, 31, 0.86);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 20px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.16), transparent 30%),
+        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.14), transparent 28%),
+        linear-gradient(135deg, #07111f 0%, #0d1b2e 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 54px;
+      align-items: center;
+      padding: 96px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 19px;
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #03111f;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.22);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(56, 189, 248, 0.45);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .profile-card {
+      background: linear-gradient(180deg, rgba(16, 34, 54, 0.9), rgba(13, 27, 46, 0.9));
+      border: 1px solid var(--card-border);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .profile-card img {
+      width: 100%;
+
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border: 0;
+      border-radius: 0;
+      margin: 0;
+      padding: 0;
+      background: none;
+    }
+
+    .profile-content {
+      padding: 24px;
+    }
+
+    .profile-card h2 {
+      font-size: 21px;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .profile-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .profile-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .profile-links a:hover {
+      color: var(--accent);
+      border-color: rgba(56, 189, 248, 0.42);
+    }
+
+    section {
+      padding: 88px 0;
+    }
+
+    .section-header {
+      margin-bottom: 34px;
+    }
+
+    .section-header h2 {
+      font-size: 34px;
+      letter-spacing: -0.05em;
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .stack-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .stack-row {
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(148, 163, 184, 0.13);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .stack-row strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 24px;
+      transition: 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.42);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+    }
+
+    .project-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+
+    .project-icon {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 13px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .project-card h3 {
+      font-size: 20px;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .project-points {
+      color: var(--muted);
+      font-size: 14px;
+      margin-left: 18px;
+      margin-bottom: 18px;
+    }
+
+    .project-points li {
+      margin-bottom: 7px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      margin-bottom: 18px;
+    }
+
+    .project-tags span {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(56, 189, 248, 0.16);
+      padding: 6px 9px;
+      border-radius: 999px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .project-links a {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .project-links a:hover {
+      color: var(--accent);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 22px;
+      padding: 22px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+    }
+
+    .timeline-date {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .timeline-item h3 {
+      font-size: 18px;
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+
+    .timeline-item h4 {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-list a,
+    .contact-list div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      color: var(--muted);
+    }
+
+    .contact-list i {
+      color: var(--accent);
+    }
+
+    .contact-list a:hover {
+      color: var(--accent);
+      border-color: rgba(56, 189, 248, 0.42);
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.035);
+      color: var(--text);
+      padding: 14px;
+      border-radius: 12px;
+      font: inherit;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(56, 189, 248, 0.55);
+    }
+
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.12);
+      padding: 34px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+
+      .hero-grid,
+      .about-grid,
+      .projects-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        max-width: 420px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#">Khayal Aghazada<span>.</span></a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow"><i class="fa-solid fa-code"></i> Backend · Full Stack · Applied AI</div>
+            <h1>Backend & Full Stack Engineer</h1>
+            <p>
+              I build Python-based web applications, REST APIs, SQL-backed systems, and applied machine learning /
+              computer vision projects.
+              Currently focused on backend engineering, Django/FastAPI, and practical AI systems.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-folder-open"></i> View Projects</a>
+              <a class="btn btn-secondary" href="cv.pdf" target="_blank"><i class="fa-solid fa-file-arrow-down"></i>
+                Download CV</a>
+              <a class="btn btn-secondary" href="https://github.com/Khayal-Aghazada" target="_blank"><i
+                  class="fa-brands fa-github"></i> GitHub</a>
+              <a class="btn btn-secondary" href="https://www.linkedin.com/in/khayal-aghazada-738990301"
+                target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            </div>
+            <div class="hero-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Django</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Oracle SQL</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Git</span>
+            </div>
+          </div>
+
+          <aside class="profile-card">
+            <img src="cv.jpg" alt="Khayal Aghazada profile photo" />
+
+            <div class="profile-content">
+              <h2>Khayal Aghazada</h2>
+
+              <p>
+                Computer Science Master's student at the University of Vienna.
+                Focused on backend development, full-stack systems, and computer vision.
+              </p>
+
+              <div class="profile-links">
+                <a href="mailto:khayal.aghazada.x@gmail.com">
+                  <span>Email</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <a href="https://github.com/Khayal-Aghazada" target="_blank">
+                  <span>GitHub</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/khayal-aghazada-738990301" target="_blank">
+                  <span>LinkedIn</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2>About</h2>
+          <p>Short, technical, and focused. No inflated claims, just the areas I am building around.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card">
+            <p>
+              I am a Backend & Full Stack Engineer focused on Python-based web applications, REST APIs, SQL databases,
+              and applied machine learning.
+              I build practical software systems using Django, FastAPI, Python, SQL, and Git, with additional experience
+              in computer vision projects using OpenCV.
+            </p>
+            <p>
+              My strongest work is in backend development, full-stack applications, and applied AI projects, including
+              real-time computer vision systems,
+              university-focused web platforms, dashboards, and automation tools. I am currently pursuing a Master’s
+              degree in Computer Science at the University of Vienna,
+              with a specialization in Data Science.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="stack-grid">
+              <div class="stack-row"><strong>Backend</strong>Python, Django, FastAPI, Flask, REST APIs, authentication,
+                application logic</div>
+              <div class="stack-row"><strong>Databases</strong>SQL, Oracle SQL, schema design, joins, queries, basic
+                optimization</div>
+              <div class="stack-row"><strong>ML / Computer Vision</strong>OpenCV, Machine Learning, Computer Vision,
+                image processing, object detection, classification</div>
+              <div class="stack-row"><strong>Frontend</strong>HTML, CSS, JavaScript, React basics, responsive design,
+                API integration</div>
+              <div class="stack-row"><strong>Tools</strong>Git, GitHub, Docker, Linux, VS Code, Postman</div>
+              <div class="stack-row"><strong>Engineering</strong>Object-Oriented Programming, debugging, modular code,
+                documentation, deployment basics</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured Projects</h2>
+          <p>Selected projects that best support backend, full-stack, machine learning, and computer vision roles.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-top">
+              <div>
+                <h3>Fatigue Detection System</h3>
+                <p>Real-time driver fatigue detection using eye tracking and head motion analysis.</p>
+              </div>
+              <div class="project-icon"><i class="fa-solid fa-eye"></i></div>
+            </div>
+            <ul class="project-points">
+              <li>Computer vision pipeline for webcam/video input.</li>
+              <li>Detection logic for eye and head movement indicators.</li>
+              <li>Bachelor thesis project graded 9/10.</li>
+            </ul>
+            <div class="project-tags"><span>Python</span><span>OpenCV</span><span>Computer Vision</span></div>
+            <div class="project-links"><a href="https://github.com/Khayal-Aghazada/Fatigue-Detection-System"
+                target="_blank"><i class="fa-brands fa-github"></i> GitHub</a></div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div>
+                <h3>Document Validation System</h3>
+                <p>Computer vision proof-of-concept for NFC terminal optical validation.</p>
+              </div>
+              <div class="project-icon"><i class="fa-solid fa-file-shield"></i></div>
+            </div>
+            <ul class="project-points">
+              <li>Uses LEDs, OCR, stabilization, and result logging.</li>
+              <li>Designed for structured validation workflows.</li>
+              <li>Focused on explainable image-processing steps.</li>
+            </ul>
+            <div class="project-tags"><span>Python</span><span>OpenCV</span><span>OCR</span></div>
+            <div class="project-links"><a href="https://github.com/Khayal-Aghazada/document-validation-system"
+                target="_blank"><i class="fa-brands fa-github"></i> GitHub</a></div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div>
+                <h3>Meeting Reporting Tool</h3>
+                <p>Lightweight web tool for documenting meetings, action items, and structured reports.</p>
+              </div>
+              <div class="project-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+            </div>
+            <ul class="project-points">
+              <li>Exports structured reports to Excel and PDF.</li>
+              <li>Designed for team documentation workflows.</li>
+              <li>Practical business-oriented web application.</li>
+            </ul>
+            <div class="project-tags"><span>JavaScript</span><span>Reports</span><span>PDF / Excel</span></div>
+            <div class="project-links"><a href="https://github.com/Khayal-Aghazada/meeting-reporting-tool"
+                target="_blank"><i class="fa-brands fa-github"></i> GitHub</a></div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div>
+                <h3>IT Project KPI Tracker</h3>
+                <p>Project management dashboard for tracking deadlines, workload, overdue items, and KPIs.</p>
+              </div>
+              <div class="project-icon"><i class="fa-solid fa-chart-line"></i></div>
+            </div>
+            <ul class="project-points">
+              <li>Dashboard-oriented project tracking workflow.</li>
+              <li>Includes workload and deadline monitoring logic.</li>
+              <li>Built to demonstrate practical data-driven reporting.</li>
+            </ul>
+            <div class="project-tags"><span>Python</span><span>Dashboard</span><span>KPI Tracking</span></div>
+            <div class="project-links"><a href="https://github.com/Khayal-Aghazada/it-project-kpi-tracker"
+                target="_blank"><i class="fa-brands fa-github"></i> GitHub</a></div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div>
+                <h3>Django Chat Site</h3>
+                <p>Real-time chat application built with Django, Django Channels, and WebSockets.</p>
+              </div>
+              <div class="project-icon"><i class="fa-solid fa-comments"></i></div>
+            </div>
+            <ul class="project-points">
+              <li>Backend-focused Django application.</li>
+              <li>Real-time communication through WebSockets.</li>
+              <li>Useful proof of backend and application logic.</li>
+            </ul>
+            <div class="project-tags"><span>Python</span><span>Django</span><span>WebSockets</span></div>
+            <div class="project-links"><a href="https://github.com/Khayal-Aghazada/django-chat-site" target="_blank"><i
+                  class="fa-brands fa-github"></i> GitHub</a></div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div>
+                <h3>Garbage Classification</h3>
+                <p>Machine learning system for classifying waste images into material categories.</p>
+              </div>
+              <div class="project-icon"><i class="fa-solid fa-recycle"></i></div>
+            </div>
+            <ul class="project-points">
+              <li>Image classification workflow for practical CV use case.</li>
+              <li>Uses deep learning for category prediction.</li>
+              <li>Relevant to applied ML and environmental automation.</li>
+            </ul>
+            <div class="project-tags"><span>Python</span><span>TensorFlow</span><span>Computer Vision</span></div>
+            <div class="project-links"><a href="https://github.com/Khayal-Aghazada/garbage-classification"
+                target="_blank"><i class="fa-brands fa-github"></i> GitHub</a></div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div>
+                <h3>EV Charging Network Dashboard</h3>
+                <p>Dashboard for monitoring EV charging station operations, KPIs, and reports.</p>
+              </div>
+              <div class="project-icon"><i class="fa-solid fa-charging-station"></i></div>
+            </div>
+            <ul class="project-points">
+              <li>Dashboard structure for operational tracking.</li>
+              <li>Includes station management and reporting workflows.</li>
+              <li>Relevant to data analyst and backend/dashboard roles.</li>
+            </ul>
+            <div class="project-tags"><span>Python</span><span>Dashboard</span><span>Excel Export</span></div>
+            <div class="project-links"><a href="https://github.com/Khayal-Aghazada/ev-charging-network-dashboard"
+                target="_blank"><i class="fa-brands fa-github"></i> GitHub</a></div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div>
+                <h3>Multimodal Safeguards AI</h3>
+                <p>AI system for analyzing user text, images, and structured data with explainable outputs.</p>
+              </div>
+              <div class="project-icon"><i class="fa-solid fa-brain"></i></div>
+            </div>
+            <ul class="project-points">
+              <li>Combines multiple input types for risk analysis.</li>
+              <li>Structured output design for interpretability.</li>
+              <li>Relevant to applied AI and ML engineering roles.</li>
+            </ul>
+            <div class="project-tags"><span>Python</span><span>AI</span><span>Multimodal</span></div>
+            <div class="project-links"><a href="https://github.com/Khayal-Aghazada/multimodal-safeguards-ai"
+                target="_blank"><i class="fa-brands fa-github"></i> GitHub</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-header">
+          <h2>Experience</h2>
+          <p>Selected experience relevant to backend, full-stack, machine learning, and mentoring work.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">Jun 2025 – Dec 2025</div>
+            <div>
+              <h3>Machine Learning Engineer Intern</h3>
+              <h4>Skolyn · Remote</h4>
+              <p>Executed and monitored machine learning training workflows, evaluated model outputs, and assisted with
+                validation of model predictions and experimentation results.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Oct 2023 – Mar 2025</div>
+            <div>
+              <h3>Co-Founder & Web Developer</h3>
+              <h4>CWB Startup · Hybrid</h4>
+              <p>Co-founded a startup focused on university-oriented digital platforms and contributed to web
+                application development using backend, frontend, and deployment workflows.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Aug 2024 – Dec 2024</div>
+            <div>
+              <h3>Python Mentor Assistant</h3>
+              <h4>Freelance · Remote</h4>
+              <p>Assisted students with Python fundamentals, object-oriented programming, debugging, Flask/Django
+                basics, and backend development concepts.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Apr 2024 – Aug 2024</div>
+            <div>
+              <h3>Front-End Mentor Assistant</h3>
+              <h4>Freelance · Remote</h4>
+              <p>Supported students in frontend fundamentals, responsive design, JavaScript, API usage, JSON handling,
+                and component-based development workflows.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contact</h2>
+          <p>Open to internships, junior software engineering roles, backend roles, and applied AI / computer vision
+            opportunities.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card">
+            <div class="contact-list">
+              <a href="mailto:khayal.aghazada.x@gmail.com"><i class="fa-solid fa-envelope"></i>
+                khayal.aghazada.x@gmail.com</a>
+              <a href="https://github.com/Khayal-Aghazada" target="_blank"><i class="fa-brands fa-github"></i>
+                github.com/Khayal-Aghazada</a>
+              <a href="https://www.linkedin.com/in/khayal-aghazada-738990301" target="_blank"><i
+                  class="fa-brands fa-linkedin"></i> LinkedIn Profile</a>
+              <div><i class="fa-solid fa-location-dot"></i> Vienna, Austria</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <form action="https://formsubmit.co/khayal.aghazada.x@gmail.com" method="POST">
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_subject" value="New Portfolio Contact Message" />
+              <input type="text" name="name" placeholder="Name" required />
+              <input type="email" name="email" placeholder="Email" required />
+              <input type="text" name="subject" placeholder="Subject" />
+              <textarea name="message" placeholder="Message" required></textarea>
+              <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Send
+                Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Khayal Aghazada. Built for backend, full-stack, and applied AI opportunities.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
